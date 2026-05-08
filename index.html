@@ -231,4 +231,68 @@
     const serviceData = {
         quiz: {
             title: "Premium Quiz Nights",
-            text: "Not just a quiz, but a full night of entertainment. Using the latest wireless
+            text: "Not just a quiz, but a full night of entertainment. Using the latest wireless keypad technology or classic high-quality paper rounds. I provide a professional PA system, music between rounds, and a charismatic hosting style that keeps the crowd engaged from start to finish."
+        },
+        blues: {
+            title: "Blues Brothers Tribute",
+            text: "A high-octane tribute to the legendary Jake and Elwood Blues. Featuring all the hits from the movie and more. This show is designed to get people on their feet and dancing. Perfect for festivals, corporate events, and themed nights."
+        },
+        variety: {
+            title: "Variety Nights",
+            text: "The best of everything! A mix of vocal performances, comedy, and audience interaction. Tailored specifically to your venue's demographic, ensuring everyone has something to enjoy."
+        },
+        magic: {
+            title: "Magic & Mentalism",
+            text: "Mind-bending close-up magic or a full stage mentalism show. Having performed on major cruise lines, I bring high-level sleight of hand and psychological illusions that will leave your guests talking for weeks."
+        },
+        race: {
+            title: "Race Nights",
+            text: "A fantastic way to raise funds for clubs or charities, or just a fun night for your pub patrons. I provide all the films, betting slips, and professional commentary to create a real 'night at the races' atmosphere."
+        },
+        gameshow: {
+            title: "Interactive Game Shows",
+            text: "Bringing the TV studio to you. From 'Play Your Cards Right' style games to bespoke interactive challenges. Great for high-energy crowd participation."
+        },
+        waiters: {
+            title: "Singing Waiters",
+            text: "The ultimate wedding or corporate surprise. I blend in with the venue staff, only to 'accidentally' burst into show-stopping West End numbers when your guests least expect it!"
+        },
+        extra: {
+            title: "Other Services",
+            text: "Need a professional MC, Auctioneer, or specialized Vocalist? With 30 years in the business, if it involves a microphone and a stage, I've got you covered."
+        }
+    };
+
+    // LOGIC TO OPEN/CLOSE MODAL
+    function openModal(service) {
+        const modal = document.getElementById('infoModal');
+        const body = document.getElementById('modalBody');
+        const data = serviceData[service];
+
+        if (data) {
+            body.innerHTML = `
+                <h2 style="color:var(--accent); font-family: 'Montserrat';">${data.title}</h2>
+                <p style="font-size: 1.1rem; line-height: 1.8;">${data.text}</p>
+            `;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('infoModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enable scrolling
+    }
+
+    // Close modal if user clicks outside the content box
+    window.onclick = function(event) {
+        const modal = document.getElementById('infoModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</body>
+</html>
