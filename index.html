@@ -58,9 +58,18 @@
         .ticker-wrap:hover .ticker-content { animation-play-state: paused; }
 
         /* Content Sections */
-        .bio-section { padding: 80px 20px; text-align: center; background: rgba(255,255,255,0.02); border-bottom: 1px solid #222; }
-        .highlight { color: var(--accent); font-weight: bold; }
-        .instruction { text-align: center; color: var(--accent); margin: 40px 0 20px; font-style: italic; font-size: 0.9rem; }
+      .bio-section { 
+            padding: 80px 20px; 
+            text-align: center; 
+            background: rgba(255,255,255,0.02); 
+            border-bottom: 1px solid #222; 
+        }
+
+        .bio-section p {
+            max-width: 850px;    /* Stops the text from stretching too wide */
+            margin: 20px auto;   /* Centers the text block on the page */
+            padding: 0 15px;     /* Keeps it away from the edges on mobile */
+        }
 
         /* Grid System */
         .services-grid {
@@ -243,7 +252,7 @@
             title: "Premium Quiz Nights",
             text: `High-energy professional quiz hosting:
                 <ul>
-                    <li>Wireless Keypad or Traditional Paper options</li>
+                    <li>An entertaining selection of varied rounds and questions</li>
                     <li>Full PA system and atmospheric music included</li>
                     <li>Themed rounds and personalized content</li>
                     <li>Perfect for pubs, clubs, and corporate teambuilding</li>
@@ -254,6 +263,7 @@
             text: `A high-octane tribute to Jake and Elwood Blues:
                 <ul>
                     <li>The full look, the sound, and the energy</li>
+                    <li>Available as a duo or with the full Band</li>
                     <li>Featuring all the hits: 'Soul Man', 'Everybody', and more</li>
                     <li>Full lighting package for the ultimate stage show</li>
                     <li>Available for festivals, private parties, and themed nights</li>
@@ -261,9 +271,9 @@
         },
         variety: {
             title: "Variety Nights",
-            text: `Classic entertainment with a modern twist:
+            text: `Bringing back the full night of variety:
                 <ul>
-                    <li>Vocal performances across all eras</li>
+                    <li>A mix of Quizzes, Games, Music Bingo, Magic, Cabaret and more</li>
                     <li>Comedy and light-hearted audience interaction</li>
                     <li>A tailor-made show to suit your specific venue</li>
                     <li>Keeping the spirit of variety alive and kicking</li>
@@ -273,8 +283,8 @@
             title: "Magic & Mentalism",
             text: `Incredible feats of the mind and sleight of hand:
                 <ul>
-                    <li>Award-winning close-up magic for tables or receptions</li>
-                    <li>Mind-reading and mentalism stage performances</li>
+                    <li>Comedy magic and breathtaking mentalism</li>
+                    <li>Stage cabaret or close up magic</li>
                     <li>Experience gained from major global cruise lines</li>
                     <li>A sophisticated choice for weddings and corporate events</li>
                 </ul>`
@@ -283,9 +293,10 @@
             title: "Race Nights",
             text: `A thrilling night at the races brought to you:
                 <ul>
-                    <li>Professional hosting and high-quality race films</li>
-                    <li>All betting slips and equipment provided</li>
+                    <li>Professional hosting and big screen projection</li>
+                    <li>Custom betting system</li>
                     <li>Ideal for fundraising or venue entertainment</li>
+	            <li>Entertainment in race breaks</li>
                     <li>An inclusive night that gets everyone cheering</li>
                 </ul>`
         },
@@ -303,9 +314,9 @@
             title: "Singing Waiters",
             text: `The ultimate surprise for your guests:
                 <ul>
-                    <li>Hidden 'undercover' performance</li>
-                    <li>Shock factor followed by West End quality vocals</li>
-                    <li>Personalized to your event timeline</li>
+                    <li>Hidden 'undercover' performers</li>
+                    <li>The perfect 'reveal' at the right moment</li>
+                    <li>Custom song list tailored to you</li>
                     <li>Guaranteed to be the highlight of your celebration</li>
                 </ul>`
         },
@@ -313,10 +324,11 @@
             title: "Bespoke Services",
             text: `If you need entertainment, I can provide it:
                 <ul>
-                    <li>Professional Master of Ceremonies (MC)</li>
+                    <li>Compere / Master of Ceremonies (MC)</li>
                     <li>Themed vocal sets (60s, 70s, 80s, etc.)</li>
-                    <li>Auctioneering for charity events</li>
+                    <li>DJ and Karaoke</li>
                     <li>Sound and lighting hire with an engineer</li>
+	            <li>Event Planning and management</li>
                 </ul>`
         }
     };
