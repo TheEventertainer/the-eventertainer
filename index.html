@@ -89,6 +89,18 @@
         }
         .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #fff; }
 
+        /* Bullet Point Styling */
+        #modalBody ul {
+            text-align: left;
+            margin-top: 15px;
+            padding-left: 20px;
+            list-style-type: square;
+        }
+        #modalBody li {
+            margin-bottom: 10px;
+            color: #eee;
+        }
+
         /* Forms & Buttons */
         .contact-section { padding: 80px 20px; background: #000; text-align: center; }
         form { max-width: 500px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 15px; }
@@ -101,7 +113,6 @@
         }
         .btn:hover { opacity: 0.9; transform: scale(1.02); }
 
-        /* Facebook Specific Buttons */
         .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
         .fb-btn-main { background: var(--fb-blue); color: white; min-width: 250px; }
         .fb-btn-blues { background: #fff; color: #000; min-width: 250px; }
@@ -227,43 +238,89 @@
 </footer>
 
 <script>
-    // DATA FOR MODALS
     const serviceData = {
         quiz: {
             title: "Premium Quiz Nights",
-            text: "Not just a quiz, but a full night of entertainment. Using the latest wireless keypad technology or classic high-quality paper rounds. I provide a professional PA system, music between rounds, and a charismatic hosting style that keeps the crowd engaged from start to finish."
+            text: `High-energy professional quiz hosting:
+                <ul>
+                    <li>Wireless Keypad or Traditional Paper options</li>
+                    <li>Full PA system and atmospheric music included</li>
+                    <li>Themed rounds and personalized content</li>
+                    <li>Perfect for pubs, clubs, and corporate teambuilding</li>
+                </ul>`
         },
         blues: {
             title: "Blues Brothers Tribute",
-            text: "A high-octane tribute to the legendary Jake and Elwood Blues. Featuring all the hits from the movie and more. This show is designed to get people on their feet and dancing. Perfect for festivals, corporate events, and themed nights."
+            text: `A high-octane tribute to Jake and Elwood Blues:
+                <ul>
+                    <li>The full look, the sound, and the energy</li>
+                    <li>Featuring all the hits: 'Soul Man', 'Everybody', and more</li>
+                    <li>Full lighting package for the ultimate stage show</li>
+                    <li>Available for festivals, private parties, and themed nights</li>
+                </ul>`
         },
         variety: {
             title: "Variety Nights",
-            text: "The best of everything! A mix of vocal performances, comedy, and audience interaction. Tailored specifically to your venue's demographic, ensuring everyone has something to enjoy."
+            text: `Classic entertainment with a modern twist:
+                <ul>
+                    <li>Vocal performances across all eras</li>
+                    <li>Comedy and light-hearted audience interaction</li>
+                    <li>A tailor-made show to suit your specific venue</li>
+                    <li>Keeping the spirit of variety alive and kicking</li>
+                </ul>`
         },
         magic: {
             title: "Magic & Mentalism",
-            text: "Mind-bending close-up magic or a full stage mentalism show. Having performed on major cruise lines, I bring high-level sleight of hand and psychological illusions that will leave your guests talking for weeks."
+            text: `Incredible feats of the mind and sleight of hand:
+                <ul>
+                    <li>Award-winning close-up magic for tables or receptions</li>
+                    <li>Mind-reading and mentalism stage performances</li>
+                    <li>Experience gained from major global cruise lines</li>
+                    <li>A sophisticated choice for weddings and corporate events</li>
+                </ul>`
         },
         race: {
             title: "Race Nights",
-            text: "A fantastic way to raise funds for clubs or charities, or just a fun night for your pub patrons. I provide all the films, betting slips, and professional commentary to create a real 'night at the races' atmosphere."
+            text: `A thrilling night at the races brought to you:
+                <ul>
+                    <li>Professional hosting and high-quality race films</li>
+                    <li>All betting slips and equipment provided</li>
+                    <li>Ideal for fundraising or venue entertainment</li>
+                    <li>An inclusive night that gets everyone cheering</li>
+                </ul>`
         },
         gameshow: {
             title: "Interactive Game Shows",
-            text: "Bringing the TV studio to you. From 'Play Your Cards Right' style games to bespoke interactive challenges. Great for high-energy crowd participation."
+            text: `TV-style game shows live at your venue:
+                <ul>
+                    <li>Audience participation at its highest</li>
+                    <li>Music, lights, and classic gameshow formats</li>
+                    <li>Professional hosting to keep the energy soaring</li>
+                    <li>Perfect for mixed-age crowds and celebrations</li>
+                </ul>`
         },
         waiters: {
             title: "Singing Waiters",
-            text: "The ultimate wedding or corporate surprise. I blend in with the venue staff, only to 'accidentally' burst into show-stopping West End numbers when your guests least expect it!"
+            text: `The ultimate surprise for your guests:
+                <ul>
+                    <li>Hidden 'undercover' performance</li>
+                    <li>Shock factor followed by West End quality vocals</li>
+                    <li>Personalized to your event timeline</li>
+                    <li>Guaranteed to be the highlight of your celebration</li>
+                </ul>`
         },
         extra: {
-            title: "Other Services",
-            text: "Need a professional MC, Auctioneer, or specialized Vocalist? With 30 years in the business, if it involves a microphone and a stage, I've got you covered."
+            title: "Bespoke Services",
+            text: `If you need entertainment, I can provide it:
+                <ul>
+                    <li>Professional Master of Ceremonies (MC)</li>
+                    <li>Themed vocal sets (60s, 70s, 80s, etc.)</li>
+                    <li>Auctioneering for charity events</li>
+                    <li>Sound and lighting hire with an engineer</li>
+                </ul>`
         }
     };
 
-    // LOGIC TO OPEN/CLOSE MODAL
     function openModal(service) {
         const modal = document.getElementById('infoModal');
         const body = document.getElementById('modalBody');
@@ -271,21 +328,20 @@
 
         if (data) {
             body.innerHTML = `
-                <h2 style="color:var(--accent); font-family: 'Montserrat';">${data.title}</h2>
-                <p style="font-size: 1.1rem; line-height: 1.8;">${data.text}</p>
+                <h2 style="color:var(--accent); font-family: 'Montserrat'; text-transform: uppercase;">${data.title}</h2>
+                <div style="font-size: 1.1rem;">${data.text}</div>
             `;
             modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Stop background scrolling
+            document.body.style.overflow = 'hidden';
         }
     }
 
     function closeModal() {
         const modal = document.getElementById('infoModal');
         modal.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Re-enable scrolling
+        document.body.style.overflow = 'auto';
     }
 
-    // Close modal if user clicks outside the content box
     window.onclick = function(event) {
         const modal = document.getElementById('infoModal');
         if (event.target == modal) {
