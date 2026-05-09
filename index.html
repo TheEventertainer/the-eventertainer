@@ -23,7 +23,6 @@
             overflow-x: hidden;
         }
 
-        /* Hero Section */
         header {
             min-height: 70vh;
             display: flex;
@@ -53,7 +52,6 @@
             opacity: 0.9; 
         }
 
-        /* Ticker Styling */
         .ticker-wrap { width: 100%; overflow: hidden; background: rgba(255,255,255,0.03); padding: 20px 0; margin: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
         .ticker-content { display: flex; width: max-content; animation: scroll-loop 30s linear infinite; }
         .ticker-items { display: flex; align-items: center; }
@@ -62,7 +60,6 @@
         @keyframes scroll-loop { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .ticker-wrap:hover .ticker-content { animation-play-state: paused; }
 
-        /* Bio Sections & Margins */
         .bio-section { 
             padding: 80px 20px; 
             text-align: center; 
@@ -76,19 +73,17 @@
             padding: 0 15px;
         }
 
-        /* The Instruction Text Fix */
         .instruction { 
             text-align: center; 
             color: var(--accent); 
             margin: 60px auto 20px auto; 
             font-style: italic; 
-            font-size: 1.4rem;  /* Made it slightly bigger */
+            font-size: 1.4rem; 
             font-weight: 600;
             display: block;
             width: 100%;
         }
 
-        /* Grid System */
         .services-grid {
             display: flex; flex-wrap: wrap; justify-content: center; 
             gap: 20px; padding: 20px 5% 80px 5%; max-width: 1400px; margin: 0 auto;
@@ -99,11 +94,11 @@
             border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease;
             width: 300px; flex-grow: 0;
         }
+
         .service-card:hover { transform: translateY(-5px); border-color: var(--accent); }
         .card-img { height: 200px; background-size: cover; background-position: center; }
         .service-card h3 { padding: 15px; margin: 0; font-family: 'Montserrat'; font-size: 1.1rem; text-align: center; background: rgba(0,0,0,0.7); }
 
-        /* Modal / Popover Styles */
         .modal {
             display: none; position: fixed; z-index: 9999; left: 0; top: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center;
@@ -118,7 +113,6 @@
         #modalBody ul { text-align: left; margin-top: 15px; padding-left: 20px; list-style-type: square; }
         #modalBody li { margin-bottom: 10px; color: #eee; }
 
-        /* Contact Form */
         .contact-section { padding: 80px 20px; background: #000; text-align: center; }
         form { max-width: 500px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 15px; }
         input, textarea { padding: 15px; border-radius: 5px; border: 1px solid #333; background: #111; color: #fff; width: 100%; font-family: inherit; }
@@ -276,7 +270,7 @@
                     <li>Comedy and light-hearted audience interaction</li>
                     <li>A tailor-made show to suit your specific venue</li>
                     <li>Ideal for charity fundraisers or family events </li>
-   		    <li>TA 'one stop' shop for a full event of entertainment</li>
+   		    <li>A 'one stop' shop for a full event of entertainment</li>
                 </ul>`
         },
         magic: {
@@ -324,7 +318,7 @@
             title: "Bespoke Services",
             text: `If you need entertainment, I can provide it:
                 <ul>
-                    <li>Compere /  Master of Ceremonies (MC)</li>
+                    <li>Compere / Master of Ceremonies (MC)</li>
                     <li>Themed vocal sets (60s, 70s, 80s, etc.)</li>
                     <li>Dj and Karaoke services</li>
                     <li>Sound and lighting hire with an engineer</li>
