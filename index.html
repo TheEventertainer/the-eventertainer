@@ -46,7 +46,12 @@
             line-height: 1.1;
         }
 
-        .hero-tagline { font-size: clamp(1rem, 4vw, 1.2rem); max-width: 800px; margin-top: 20px; opacity: 0.9; }
+        .hero-tagline { 
+            font-size: clamp(1rem, 4vw, 1.2rem); 
+            max-width: 800px; 
+            margin: 20px auto 0 auto; 
+            opacity: 0.9; 
+        }
 
         /* Ticker Styling */
         .ticker-wrap { width: 100%; overflow: hidden; background: rgba(255,255,255,0.03); padding: 20px 0; margin: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
@@ -57,8 +62,8 @@
         @keyframes scroll-loop { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         .ticker-wrap:hover .ticker-content { animation-play-state: paused; }
 
-        /* Content Sections */
-      .bio-section { 
+        /* Bio Sections & Margins */
+        .bio-section { 
             padding: 80px 20px; 
             text-align: center; 
             background: rgba(255,255,255,0.02); 
@@ -66,21 +71,23 @@
         }
 
         .bio-section p {
-            max-width: 850px;    /* Stops the text from stretching too wide */
-            margin: 20px auto;   /* Centers the text block on the page */
-            padding: 0 15px;     /* Keeps it away from the edges on mobile */
+            max-width: 850px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
-/* Centering and sizing the instruction text above the cards */
+        /* The Instruction Text Fix */
         .instruction { 
             text-align: center; 
             color: var(--accent); 
-            margin: 40px auto 20px; 
+            margin: 60px auto 20px auto; 
             font-style: italic; 
-            font-size: 1.3rem;    /* Slightly larger font */
-            font-weight: 600;     /* Makes it stand out more */
-            display: block; 
-            width: 100%;          /* Forces it to use the full width to center correctly */
+            font-size: 1.4rem;  /* Made it slightly bigger */
+            font-weight: 600;
+            display: block;
+            width: 100%;
+        }
+
         /* Grid System */
         .services-grid {
             display: flex; flex-wrap: wrap; justify-content: center; 
@@ -96,7 +103,7 @@
         .card-img { height: 200px; background-size: cover; background-position: center; }
         .service-card h3 { padding: 15px; margin: 0; font-family: 'Montserrat'; font-size: 1.1rem; text-align: center; background: rgba(0,0,0,0.7); }
 
-        /* Modal Styles */
+        /* Modal / Popover Styles */
         .modal {
             display: none; position: fixed; z-index: 9999; left: 0; top: 0;
             width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center;
@@ -108,19 +115,10 @@
         }
         .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #fff; }
 
-        /* Bullet Point Styling */
-        #modalBody ul {
-            text-align: left;
-            margin-top: 15px;
-            padding-left: 20px;
-            list-style-type: square;
-        }
-        #modalBody li {
-            margin-bottom: 10px;
-            color: #eee;
-        }
+        #modalBody ul { text-align: left; margin-top: 15px; padding-left: 20px; list-style-type: square; }
+        #modalBody li { margin-bottom: 10px; color: #eee; }
 
-        /* Forms & Buttons */
+        /* Contact Form */
         .contact-section { padding: 80px 20px; background: #000; text-align: center; }
         form { max-width: 500px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 15px; }
         input, textarea { padding: 15px; border-radius: 5px; border: 1px solid #333; background: #111; color: #fff; width: 100%; font-family: inherit; }
@@ -224,15 +222,9 @@
             <button type="submit" class="btn">Send Request</button>
         </form>
 
-        <div class="social-wrapper" style="margin-top: 40px;">
-            <p style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px;">
-                <svg style="width:30px; height:30px; fill:#1877F2;" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z" /></svg>
-                <span>Find us on Facebook</span>
-            </p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/TheEventertainerUK" target="_blank" class="btn fb-btn-main">The Eventertainer</a>
-                <a href="https://www.facebook.com/chicagolandbluesbrothers" target="_blank" class="btn fb-btn-blues">Chicagoland Blues Brothers</a>
-            </div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/TheEventertainerUK" target="_blank" class="btn fb-btn-main">The Eventertainer on Facebook</a>
+            <a href="https://www.facebook.com/chicagolandbluesbrothers" target="_blank" class="btn fb-btn-blues">Chicagoland Blues Brothers</a>
         </div>
     </section>
 
@@ -248,12 +240,8 @@
             </a>
         </div>
     </div>
-    <a href="#" style="color: var(--accent); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 40px;">
-        ↑ Back to Top
-    </a>
-    <p style="opacity: 0.4; font-size: 0.8rem; margin: 0;">
-        &copy; 2026 TheEventertainer. All Rights Reserved.
-    </p>
+    <a href="#" style="color: var(--accent); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 40px;">↑ Back to Top</a>
+    <p style="opacity: 0.4; font-size: 0.8rem; margin: 0;">&copy; 2026 TheEventertainer. All Rights Reserved.</p>
 </footer>
 
 <script>
@@ -262,9 +250,11 @@
             title: "Premium Quiz Nights",
             text: `High-energy professional quiz hosting:
                 <ul>
-                    <li>An entertaining selection of varied rounds and questions</li>
-                    <li>Full PA system and atmospheric music included</li>
-                    <li>Themed rounds and personalized content</li>
+                    <li>A variety of rounds and questions</li>
+                    <li>Music rounds, picture rounds and specialist rounds</li>
+		    <li>Accumulator games for repeat visitation</li>
+                    <li>Themed rounds and personalised content</li>
+		    <li>Full PA system and atmospheric music included</li>
                     <li>Perfect for pubs, clubs, and corporate teambuilding</li>
                 </ul>`
         },
@@ -272,8 +262,7 @@
             title: "Blues Brothers Tribute",
             text: `A high-octane tribute to Jake and Elwood Blues:
                 <ul>
-                    <li>The full look, the sound, and the energy</li>
-                    <li>Available as a duo or with the full Band</li>
+                    <li>Available as a duo or with the full band & 'Blue-ettes'</li>
                     <li>Featuring all the hits: 'Soul Man', 'Everybody', and more</li>
                     <li>Full lighting package for the ultimate stage show</li>
                     <li>Available for festivals, private parties, and themed nights</li>
@@ -281,20 +270,21 @@
         },
         variety: {
             title: "Variety Nights",
-            text: `Bringing back the full night of variety:
+            text: `Keeping variety alive:
                 <ul>
-                    <li>A mix of Quizzes, Games, Music Bingo, Magic, Cabaret and more</li>
+                    <li>A full mix of quizzes, magic, cabaret and more</li>
                     <li>Comedy and light-hearted audience interaction</li>
                     <li>A tailor-made show to suit your specific venue</li>
-                    <li>Keeping the spirit of variety alive and kicking</li>
+                    <li>Ideal for charity fundraisers or family events </li>
+   		    <li>TA 'one stop' shop for a full event of entertainment</li>
                 </ul>`
         },
         magic: {
             title: "Magic & Mentalism",
             text: `Incredible feats of the mind and sleight of hand:
                 <ul>
-                    <li>Comedy magic and breathtaking mentalism</li>
-                    <li>Stage cabaret or close up magic</li>
+                    <li>Comedy magic and jaw dropping mentalism</li>
+                    <li>Stage cabaret or close up magic options</li>
                     <li>Experience gained from major global cruise lines</li>
                     <li>A sophisticated choice for weddings and corporate events</li>
                 </ul>`
@@ -306,7 +296,7 @@
                     <li>Professional hosting and big screen projection</li>
                     <li>Custom betting system</li>
                     <li>Ideal for fundraising or venue entertainment</li>
-	            <li>Entertainment in race breaks</li>
+		    <li>Live entertainment in all race breaks</li>
                     <li>An inclusive night that gets everyone cheering</li>
                 </ul>`
         },
@@ -325,20 +315,20 @@
             text: `The ultimate surprise for your guests:
                 <ul>
                     <li>Hidden 'undercover' performers</li>
-                    <li>The perfect 'reveal' at the right moment</li>
-                    <li>Custom song list tailored to you</li>
-                    <li>Guaranteed to be the highlight of your celebration</li>
+                    <li>The perfect 'reveal' at the best moment in your celebrations</li>
+                    <li>Personalised setlist of songs</li>
+                    <li>Guaranteed to be a highlight of your wedding celebration</li>
                 </ul>`
         },
         extra: {
             title: "Bespoke Services",
             text: `If you need entertainment, I can provide it:
                 <ul>
-                    <li>Compere / Master of Ceremonies (MC)</li>
+                    <li>Compere /  Master of Ceremonies (MC)</li>
                     <li>Themed vocal sets (60s, 70s, 80s, etc.)</li>
-                    <li>DJ and Karaoke</li>
+                    <li>Dj and Karaoke services</li>
                     <li>Sound and lighting hire with an engineer</li>
-	            <li>Event Planning and management</li>
+		    <li>Event planning and management</li>
                 </ul>`
         }
     };
