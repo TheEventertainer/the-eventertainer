@@ -233,10 +233,13 @@
     <section class="contact-section" id="contact">
         <form action="https://submit-form.com/KqZORvumi" method="POST">
             <h2>Booking & Enquiries</h2>
-            <input type="hidden" name="_redirect" value="https://theeventertainer.co.uk?status=success" />
+            
+            <input type="hidden" name="_redirect" value="https://the-eventertainer.com?status=success" />
+            
             <input type="text" name="name" placeholder="Name / Venue" required>
             <input type="email" name="email" placeholder="Email Address" required>
             <textarea name="message" rows="4" placeholder="Event details (Date, Location, Type of Event)..." required></textarea>
+            
             <button type="submit" class="btn">Send Request</button>
         </form>
 
@@ -379,7 +382,7 @@
         }
     }
 
-    // Success Message Script
+    // Updated Success Message Script for the-eventertainer.com
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('status') === 'success') {
@@ -394,6 +397,8 @@
                 </div>
             `;
             modal.style.display = 'flex';
+            
+            // This cleans the URL so the popup doesn't stay there if they refresh
             window.history.replaceState({}, document.title, window.location.pathname);
         }
     }
