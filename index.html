@@ -15,7 +15,7 @@
     <meta property="og:url" content="https://theeventertainer.co.uk">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎤</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
@@ -35,6 +35,15 @@
             background-attachment: fixed;
             color: #fff; line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        h2 {
+            text-align: center;
+            width: 100%;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
         header {
@@ -72,7 +81,6 @@
         .ticker-items span { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; padding: 0 40px; color: var(--accent); white-space: nowrap; }
         .ticker-items span:nth-child(even) { color: white; }
         @keyframes scroll-loop { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        
 
         .bio-section { 
             padding: 80px 20px; 
@@ -222,8 +230,8 @@
     </section>
 
     <section class="contact-section" id="contact">
-        <h2>Booking & Enquiries</h2>
         <form action="https://formspree.io/f/xdabwgbk" method="POST">
+            <h2>Booking & Enquiries</h2>
             <input type="text" name="name" placeholder="Name / Venue" required>
             <input type="email" name="email" placeholder="Email Address" required>
             <textarea name="message" rows="4" placeholder="Event details..." required></textarea>
