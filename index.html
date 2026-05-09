@@ -199,4 +199,204 @@
             <h3>Magic & Mentalism</h3>
         </div>
         <div class="service-card" onclick="openModal('race')">
-            <div class="card-img" style="background-image: url('
+            <div class="card-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNpGOqXWglhokN1QaWOo8XARNlr6h7uJtlfzimu0UMzg&s=10')"></div>
+            <h3>Race Nights</h3>
+        </div>
+        <div class="service-card" onclick="openModal('gameshow')">
+            <div class="card-img" style="background-image: url('https://cdn1.edgedatg.com/aws/v2/abc/ABCUpdates/blog/4217516/2198630e0797c04dd17cc4070fbc2c3b/1600x900-Q90_2198630e0797c04dd17cc4070fbc2c3b.jpg')"></div>
+            <h3>Game Shows</h3>
+        </div>
+        <div class="service-card" onclick="openModal('waiters')">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=400')"></div>
+            <h3>Singing Waiters</h3>
+        </div>
+        <div class="service-card" onclick="openModal('extra')">
+            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400')"></div>
+            <h3>Other Services</h3>
+        </div>
+    </section>
+
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+            <a href="#contact" onclick="closeModal()" class="btn" style="width:100%; text-align:center; margin-top:20px;">Enquire Now</a>
+        </div>
+    </div>
+
+    <section class="bio-section">
+        <h2>AREAS COVERED</h2>
+        <p>Based in the North West, I typically cover areas within one hour's drive. However, any location will be considered, provided travel and accommodation are factored in.</p>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <form action="https://submit-form.com/KqZORvumi" method="POST">
+            <h2>Booking & Enquiries</h2>
+            <input type="hidden" name="_redirect" value="https://the-eventertainer.com?status=success" />
+            <input type="text" name="name" placeholder="Name / Venue" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <textarea name="message" rows="4" placeholder="Event details (Date, Location, Type of Event)..." required></textarea>
+            <button type="submit" class="btn">Send Request</button>
+        </form>
+
+        <div class="social-links">
+            <a href="https://www.facebook.com/TheEventertainerUK" target="_blank" class="btn fb-btn-main">The Eventertainer on Facebook</a>
+            <a href="https://www.facebook.com/chicagolandbluesbrothers" target="_blank" class="btn fb-btn-blues">Chicagoland Blues Brothers</a>
+        </div>
+    </section>
+
+    <footer style="background: #000; padding: 40px 20px; text-align: center; border-top: 1px solid #222;">
+        <div style="margin-bottom: 30px;">
+            <h3 style="color: var(--accent); font-family: 'Montserrat'; text-transform: uppercase; margin-bottom: 20px;">Get In Touch Directly</h3>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; font-size: 1.1rem;">
+                <a href="https://wa.me/447709140912" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span style="color: #25D366; font-weight: bold;">WhatsApp/Call:</span> 07709140912
+                </a>
+                <a href="mailto:chicagolandbluesbrothers@hotmail.com" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+                    <span style="color: var(--accent);">Email:</span> chicagolandbluesbrothers@hotmail.com
+                </a>
+            </div>
+        </div>
+        <a href="#" style="color: var(--accent); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 40px;">↑ Back to Top</a>
+        <p style="opacity: 0.4; font-size: 0.8rem; margin: 0;">&copy; 2026 TheEventertainer. All Rights Reserved.</p>
+    </footer>
+
+<script>
+    const serviceData = {
+        quiz: {
+            title: "Premium Quiz Nights",
+            text: `High-energy professional quiz hosting:
+                <ul>
+                    <li>A variety of rounds and questions</li>
+                    <li>Music rounds, picture rounds and specialist rounds</li>
+                    <li>Accumulator games for repeat visitation</li>
+                    <li>Themed rounds and personalised content</li>
+                    <li>Full PA system and atmospheric music included</li>
+                    <li>Perfect for pubs, clubs, and corporate teambuilding</li>
+                </ul>`
+        },
+        blues: {
+            title: "Blues Brothers Tribute",
+            text: `A high-octane tribute to Jake and Elwood Blues:
+                <ul>
+                    <li>Available as a duo or with the full band & 'Blue-ettes'</li>
+                    <li>Featuring all the hits: 'Soul Man', 'Everybody', and more</li>
+                    <li>Full lighting package for the ultimate stage show</li>
+                    <li>Available for festivals, private parties, and themed nights</li>
+                </ul>`
+        },
+        variety: {
+            title: "Variety Nights",
+            text: `Keeping variety alive:
+                <ul>
+                    <li>A full mix of quizzes, magic, cabaret and more</li>
+                    <li>Comedy and light-hearted audience interaction</li>
+                    <li>A tailor-made show to suit your specific venue</li>
+                    <li>Ideal for charity fundraisers or family events </li>
+                    <li>A 'one stop' shop for a full event of entertainment</li>
+                </ul>`
+        },
+        magic: {
+            title: "Magic & Mentalism",
+            text: `Incredible feats of the mind and sleight of hand:
+                <ul>
+                    <li>Comedy magic and jaw dropping mentalism</li>
+                    <li>Stage cabaret or close up magic options</li>
+                    <li>Experience gained from major global cruise lines</li>
+                    <li>A sophisticated choice for weddings and corporate events</li>
+                </ul>`
+        },
+        race: {
+            title: "Race Nights",
+            text: `A thrilling night at the races brought to you:
+                <ul>
+                    <li>Professional hosting and big screen projection</li>
+                    <li>Custom betting system</li>
+                    <li>Ideal for fundraising or venue entertainment</li>
+                    <li>Live entertainment in all race breaks</li>
+                    <li>An inclusive night that gets everyone cheering</li>
+                </ul>`
+        },
+        gameshow: {
+            title: "Interactive Game Shows",
+            text: `TV-style game shows live at your venue:
+                <ul>
+                    <li>Audience participation at its highest</li>
+                    <li>Music, lights, and classic gameshow formats</li>
+                    <li>Professional hosting to keep the energy soaring</li>
+                    <li>Perfect for mixed-age crowds and celebrations</li>
+                </ul>`
+        },
+        waiters: {
+            title: "Singing Waiters",
+            text: `The ultimate surprise for your guests:
+                <ul>
+                    <li>Hidden 'undercover' performers</li>
+                    <li>The perfect 'reveal' at the best moment in your celebrations</li>
+                    <li>Personalised setlist of songs</li>
+                    <li>Guaranteed to be a highlight of your wedding celebration</li>
+                </ul>`
+        },
+        extra: {
+            title: "Bespoke Services",
+            text: `If you need entertainment, I can provide it:
+                <ul>
+                    <li>Compere / Master of Ceremonies (MC)</li>
+                    <li>Themed vocal sets (60s, 70s, 80s, etc.)</li>
+                    <li>Dj and Karaoke services</li>
+                    <li>Sound and lighting hire with an engineer</li>
+                    <li>Event planning and management</li>
+                </ul>`
+        }
+    };
+
+    function openModal(service) {
+        const modal = document.getElementById('infoModal');
+        const body = document.getElementById('modalBody');
+        const data = serviceData[service];
+
+        if (data) {
+            body.innerHTML = `
+                <h2 style="color:var(--accent); font-family: 'Montserrat'; text-transform: uppercase;">${data.title}</h2>
+                <div style="font-size: 1.1rem;">${data.text}</div>
+            `;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('infoModal');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function(event) {
+        const modal = document.getElementById('infoModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+
+    // Success Message Script
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('status') === 'success') {
+            const modal = document.getElementById('infoModal');
+            const body = document.getElementById('modalBody');
+            
+            body.innerHTML = `
+                <h2 style="color:var(--accent); font-family: 'Montserrat';">THANK YOU!</h2>
+                <div style="font-size: 1.2rem; text-align: center;">
+                    <p>Your enquiry has been sent successfully.</p>
+                    <p>The Eventertainer will be in touch with you shortly!</p>
+                </div>
+            `;
+            modal.style.display = 'flex';
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
+</script>
+
+</body>
+</html>
