@@ -378,21 +378,27 @@
         }
     }
 
-    // Success Message Script
+    // Success Message Script - Button Hiding Version
     window.onload = function() {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('status') === 'success') {
             const modal = document.getElementById('infoModal');
             const body = document.getElementById('modalBody');
             
+            // 1. Find the "Enquire Now" button inside the modal and hide it
+            const modalBtn = modal.querySelector('.btn');
+            if (modalBtn) modalBtn.style.display = 'none';
+            
             body.innerHTML = `
                 <h2 style="color:var(--accent); font-family: 'Montserrat';">THANK YOU!</h2>
-                <div style="font-size: 1.2rem; text-align: center;">
+                <div style="font-size: 1.2rem; text-align: center; padding-bottom: 20px;">
                     <p>Your enquiry has been sent successfully.</p>
                     <p>The Eventertainer will be in touch with you shortly!</p>
                 </div>
             `;
             modal.style.display = 'flex';
+            
+            // Clean up the URL
             window.history.replaceState({}, document.title, window.location.pathname);
         }
     }
