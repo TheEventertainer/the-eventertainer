@@ -21,14 +21,23 @@
             --fb-blue: #1877F2;
         }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
+        /* Improved Scrollbar Styling for a cleaner look */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 5px; border: 2px solid #000; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        * { box-sizing: border-box; }
         
+        html { scroll-behavior: smooth; }
+
         body { 
             margin: 0; font-family: 'Open Sans', sans-serif; 
             background: radial-gradient(circle at top, #1a1a1a 0%, #000000 100%);
             background-attachment: fixed;
             color: #fff; line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
 
         h2 { text-align: center; font-family: 'Montserrat'; color: var(--accent); text-transform: uppercase; margin-bottom: 30px; }
@@ -101,15 +110,17 @@
         .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
         .modal-content { background: #1a1a1a; padding: 40px; border: 1px solid var(--accent); width: 90%; max-width: 600px; border-radius: 15px; position: relative; max-height: 90vh; overflow-y: auto; }
         .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #fff; }
+        #modalBody ul { text-align: left; margin-top: 15px; padding-left: 20px; list-style-type: square; }
+        #modalBody li { margin-bottom: 10px; color: #eee; }
     </style>
 </head>
-<body id="top">
+<body>
 
     <button id="backToTop" onclick="scrollToTop()" title="Go to top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <header>
+    <header id="top">
         <h1 class="hero-title">The Eventertainer</h1>
         <p class="hero-tagline">Bringing West End energy and Cruise Ship class entertainment to your venue. From corporate events to local pubs and clubs, your booking is guaranteed to be a success. With a full light and sound package, full public liability insurance, and a world of experience brought directly to you.</p>
     </header>
@@ -276,32 +287,106 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
-        // Data for Modal
         const serviceData = {
-            quiz: { title: "Premium Quiz Nights", text: `<ul><li>Variety of rounds and questions</li><li>Music and picture rounds</li><li>Accumulator games</li><li>Full PA system included</li></ul>` },
-            blues: { title: "Blues Brothers Tribute", text: `<ul><li>Jake & Elwood Tribute Duo</li><li>Featuring all the hits</li><li>Full stage lighting show</li></ul>` },
-            variety: { title: "Variety Nights", text: `<ul><li>Mix of quizzes, magic, and cabaret</li><li>Ideal for fundraisers</li><li>Tailor-made for your venue</li></ul>` },
-            magic: { title: "Magic & Mentalism", text: `<ul><li>Comedy magic and mind reading</li><li>Close-up or stage options</li><li>Cruise ship experience</li></ul>` },
-            race: { title: "Race Nights", text: `<ul><li>Big screen race projection</li><li>Full professional hosting</li><li>Great for fundraising</li></ul>` },
-            gameshow: { title: "Interactive Game Shows", text: `<ul><li>Audience participation</li><li>Classic gameshow formats</li><li>Music and prizes</li></ul>` },
-            waiters: { title: "Singing Waiters", text: `<ul><li>The ultimate undercover surprise</li><li>Perfect for weddings</li><li>Personalised setlists</li></ul>` },
-            extra: { title: "Other Services", text: `<ul><li>Master of Ceremonies</li><li>DJ & Karaoke</li><li>Event Management</li></ul>` }
+            quiz: {
+                title: "Premium Quiz Nights",
+                text: `<ul>
+                        <li>A variety of rounds and questions</li>
+                        <li>Music rounds, picture rounds and specialist rounds</li>
+                        <li>Accumulator games for repeat visitation</li>
+                        <li>Themed rounds and personalised content</li>
+                        <li>Full PA system and atmospheric music included</li>
+                        <li>Perfect for pubs, clubs, and corporate teambuilding</li>
+                    </ul>`
+            },
+            blues: {
+                title: "Blues Brothers Tribute",
+                text: `<ul>
+                        <li>Available as a duo or with the full band & 'Blue-ettes'</li>
+                        <li>Featuring all the hits: 'Soul Man', 'Everybody', and more</li>
+                        <li>Full lighting package for the ultimate stage show</li>
+                        <li>Available for festivals, private parties, and themed nights</li>
+                    </ul>`
+            },
+            variety: {
+                title: "Variety Nights",
+                text: `<ul>
+                        <li>A full mix of quizzes, magic, cabaret and more</li>
+                        <li>Comedy and light-hearted audience interaction</li>
+                        <li>A tailor-made show to suit your specific venue</li>
+                        <li>Ideal for charity fundraisers or family events </li>
+                        <li>A 'one stop' shop for a full event of entertainment</li>
+                    </ul>`
+            },
+            magic: {
+                title: "Magic & Mentalism",
+                text: `<ul>
+                        <li>Comedy magic and jaw dropping mentalism</li>
+                        <li>Stage cabaret or close up magic options</li>
+                        <li>Experience gained from major global cruise lines</li>
+                        <li>A sophisticated choice for weddings and corporate events</li>
+                    </ul>`
+            },
+            race: {
+                title: "Race Nights",
+                text: `<ul>
+                        <li>Professional hosting and big screen projection</li>
+                        <li>Custom betting system</li>
+                        <li>Ideal for fundraising or venue entertainment</li>
+                        <li>Live entertainment in all race breaks</li>
+                        <li>An inclusive night that gets everyone cheering</li>
+                    </ul>`
+            },
+            gameshow: {
+                title: "Interactive Game Shows",
+                text: `<ul>
+                        <li>Audience participation at its highest</li>
+                        <li>Music, lights, and classic gameshow formats</li>
+                        <li>Professional hosting to keep the energy soaring</li>
+                        <li>Perfect for mixed-age crowds and celebrations</li>
+                    </ul>`
+            },
+            waiters: {
+                title: "Singing Waiters",
+                text: `<ul>
+                        <li>Hidden 'undercover' performers</li>
+                        <li>The perfect 'reveal' at the best moment in your celebrations</li>
+                        <li>Personalised setlist of songs</li>
+                        <li>Guaranteed to be a highlight of your wedding celebration</li>
+                    </ul>`
+            },
+            extra: {
+                title: "Bespoke Services",
+                text: `<ul>
+                        <li>Compere / Master of Ceremonies (MC)</li>
+                        <li>Themed vocal sets (60s, 70s, 80s, etc.)</li>
+                        <li>Dj and Karaoke services</li>
+                        <li>Sound and lighting hire with an engineer</li>
+                        <li>Event planning and management</li>
+                    </ul>`
+            }
         };
 
-        // Modal Functions
+        // Modal Logic
         function openModal(service) {
             const modal = document.getElementById('infoModal');
             const body = document.getElementById('modalBody');
             const data = serviceData[service];
             if (data) {
-                body.innerHTML = `<h2 style="color:var(--accent); font-family: 'Montserrat'; uppercase;">${data.title}</h2><div style="font-size: 1.1rem;">${data.text}</div>`;
+                body.innerHTML = `<h2 style="color:var(--accent); font-family: 'Montserrat'; text-transform: uppercase;">${data.title}</h2><div style="font-size: 1.1rem;">${data.text}</div>`;
                 modal.style.display = 'flex';
+                // Fix for scrollbar "jumping"
+                document.body.style.paddingRight = (window.innerWidth - document.documentElement.clientWidth) + "px";
                 document.body.style.overflow = 'hidden';
             }
         }
-        function closeModal() { document.getElementById('infoModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        function closeModal() { 
+            document.getElementById('infoModal').style.display = 'none'; 
+            document.body.style.overflow = 'auto'; 
+            document.body.style.paddingRight = "0px";
+        }
 
-        // FAQ Logic (One at a time)
+        // FAQ Logic
         function toggleTopic(element) {
             const topic = element.parentElement;
             const isOpen = topic.classList.contains('active');
@@ -328,27 +413,23 @@
             }
         }
 
-        // Back to Top Logic
+        // Back to Top & Scroll Reveal
         const topBtn = document.getElementById("backToTop");
         window.onscroll = function() {
-            // Reveal sections
             var reveals = document.querySelectorAll(".reveal");
             reveals.forEach(r => {
                 if (r.getBoundingClientRect().top < window.innerHeight - 150) r.classList.add("active");
             });
 
-            // Show/Hide Top Button
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
                 topBtn.style.display = "flex";
             } else {
                 topBtn.style.display = "none";
             }
         };
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
 
-        // Form Success Handling
+        // Load Handling
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('status') === 'success') {
