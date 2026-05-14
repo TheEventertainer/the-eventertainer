@@ -7,16 +7,8 @@
     <title>The Eventertainer | Premier Event Hosting & Entertainment North West</title>
     <meta name="description" content="Professional event hosting, Quiz Nights, Blues Brothers Tribute, and Magic across the North West. Over 30 years of West End and Cruise Ship experience.">
     <meta name="keywords" content="Eventertainer, Quiz Night Hire, Blues Brothers Tribute, Singing Waiters, Wedding Entertainment North West, Lancashire Entertainment">
-    <meta name="author" content="The Eventertainer">
-
-    <meta property="og:title" content="The Eventertainer | Premier Event Hosting">
-    <meta property="og:description" content="Bringing West End energy and Cruise Ship class entertainment to your venue.">
-    <meta property="og:image" content="https://the-eventertainer.com/og-image.jpg">
-    <meta property="og:url" content="https://the-eventertainer.com">
-    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎤</text></svg>">
-
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
@@ -37,379 +29,391 @@
             overflow-x: hidden;
         }
 
-        h2 {
-            text-align: center;
-            width: 100%;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
+        h2 { text-align: center; font-family: 'Montserrat'; color: var(--accent); text-transform: uppercase; margin-bottom: 30px; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
         header {
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), 
-                        url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1600') no-repeat center/cover;
+            min-height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1600') no-repeat center/cover;
             padding: 40px 20px;
         }
 
-        .hero-title { 
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2.5rem, 10vw, 5rem); 
-            width: 100%;
-            margin: 0; 
-            color: var(--accent); 
-            text-transform: uppercase;
-            line-height: 1.1;
-        }
+        .hero-title { font-family: 'Montserrat'; font-size: clamp(2.5rem, 10vw, 5rem); color: var(--accent); text-transform: uppercase; margin: 0; line-height: 1.1; }
+        .hero-tagline { font-size: clamp(1rem, 4vw, 1.2rem); max-width: 800px; margin-top: 20px; opacity: 0.9; }
 
-        .hero-tagline { 
-            font-size: clamp(1rem, 4vw, 1.2rem); 
-            max-width: 800px; 
-            margin: 20px auto 0 auto; 
-            opacity: 0.9; 
-        }
-
-        .ticker-wrap { width: 100%; overflow: hidden; background: rgba(255,255,255,0.03); padding: 20px 0; margin: 30px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .ticker-wrap { width: 100%; overflow: hidden; background: rgba(255,255,255,0.03); padding: 25px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
         .ticker-content { display: flex; width: max-content; animation: scroll-loop 30s linear infinite; }
-        .ticker-items { display: flex; align-items: center; }
         .ticker-items span { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; padding: 0 40px; color: var(--accent); white-space: nowrap; }
-        .ticker-items span:nth-child(even) { color: white; }
         @keyframes scroll-loop { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-        .bio-section { 
-            padding: 80px 20px; 
-            text-align: center; 
-            background: rgba(255,255,255,0.02); 
-            border-bottom: 1px solid #222; 
-        }
+        section { padding: 80px 20px; margin: 0; }
+        .section-dark { background: rgba(0,0,0,0.3); }
 
-        .bio-section p {
-            max-width: 850px;
-            margin: 20px auto;
-            padding: 0 15px;
-        }
+        .bio-text { max-width: 850px; margin: 0 auto; text-align: center; }
+        .instruction { text-align: center; color: var(--accent); margin-bottom: 20px; font-style: italic; font-size: 1.4rem; font-weight: 600; display: block; width: 100%; }
 
-        .instruction { 
-            text-align: center; 
-            color: var(--accent); 
-            margin: 60px auto 20px auto; 
-            font-style: italic; 
-            font-size: 1.4rem; 
-            font-weight: 600;
-            display: block;
-            width: 100%;
-        }
-
-        .services-grid {
-            display: flex; flex-wrap: wrap; justify-content: center; 
-            gap: 20px; padding: 20px 5% 80px 5%; max-width: 1400px; margin: 0 auto;
-        }
-
-        .service-card {
-            background: var(--glass); border-radius: 12px; overflow: hidden; cursor: pointer;
-            border: 1px solid rgba(255,255,255,0.1); transition: transform 0.3s ease;
-            width: 300px; flex-grow: 0;
-        }
-
+        .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1400px; margin: 0 auto; }
+        .service-card { background: var(--glass); border-radius: 12px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; width: 300px; }
         .service-card:hover { transform: translateY(-5px); border-color: var(--accent); }
         .card-img { height: 200px; background-size: cover; background-position: center; }
         .service-card h3 { padding: 15px; margin: 0; font-family: 'Montserrat'; font-size: 1.1rem; text-align: center; background: rgba(0,0,0,0.7); }
 
-        .modal {
-            display: none; position: fixed; z-index: 9999; left: 0; top: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center;
-        }
-        .modal-content {
-            background: #1a1a1a; padding: 40px; border: 1px solid var(--accent); 
-            width: 90%; max-width: 600px; border-radius: 15px; position: relative;
-            max-height: 90vh; overflow-y: auto;
-        }
-        .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #fff; }
+        .testimonial-track { display: flex; width: max-content; animation: scroll-loop 60s linear infinite; padding: 20px 0; }
+        .testimonial-card { background: var(--glass); padding: 30px; border-radius: 15px; width: 350px; margin: 0 15px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; justify-content: center; }
 
+        /* FAQ STYLING */
+        .faq-outer-box { max-width: 850px; margin: 0 auto; background: var(--glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; overflow: hidden; }
+        .faq-topic { border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .topic-header { padding: 20px; cursor: pointer; color: #ffffff !important; font-family: 'Montserrat'; font-size: 1.1rem; display: flex; justify-content: space-between; text-transform: uppercase; }
+        .topic-content { display: none; background: rgba(0,0,0,0.4); padding: 0 20px; }
+        .faq-topic.active > .topic-content { display: block; }
+        .nested-question { padding: 15px 0; cursor: pointer; color: var(--accent) !important; font-weight: 600; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; }
+        .nested-answer { display: none; padding: 0 0 15px 10px; color: #ffffff !important; font-size: 0.95rem; line-height: 1.5; }
+        .nested-item.active .nested-answer { display: block; }
+
+        .contact-section { background: #000; text-align: center; padding-bottom: 40px; }
+        form { max-width: 550px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 15px; }
+        input, textarea { padding: 15px; background: #111; border: 1px solid #333; color: #fff; border-radius: 5px; font-family: inherit; }
+        .btn { background: var(--accent); color: #000; font-weight: bold; padding: 15px 30px; border-radius: 5px; cursor: pointer; text-transform: uppercase; border: none; text-decoration: none; display: inline-block; transition: 0.3s; }
+        .btn:hover { transform: scale(1.02); opacity: 0.9; }
+
+        .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+        .modal-content { background: #1a1a1a; padding: 40px; border: 1px solid var(--accent); width: 90%; max-width: 600px; border-radius: 15px; position: relative; max-height: 90vh; overflow-y: auto; }
+        .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #fff; }
         #modalBody ul { text-align: left; margin-top: 15px; padding-left: 20px; list-style-type: square; }
         #modalBody li { margin-bottom: 10px; color: #eee; }
-
-        .contact-section { padding: 80px 20px; background: #000; text-align: center; }
-        form { max-width: 500px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 15px; }
-        input, textarea { padding: 15px; border-radius: 5px; border: 1px solid #333; background: #111; color: #fff; width: 100%; font-family: inherit; }
-        
-        .btn { 
-            background: var(--accent); color: #000; font-weight: bold; border: none; padding: 15px 30px; 
-            cursor: pointer; border-radius: 5px; text-transform: uppercase; text-decoration: none; 
-            display: inline-block; transition: 0.3s;
-        }
-        .btn:hover { opacity: 0.9; transform: scale(1.02); }
-
-        .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
-        .fb-btn-main { background: var(--fb-blue); color: white; min-width: 250px; }
-        .fb-btn-blues { background: #fff; color: #000; min-width: 250px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1 class="hero-title">The Eventertainer</h1>
-        <p class="hero-tagline">Bringing West End energy and Cruise Ship class entertainment to your venue. From corporate events to local pubs and clubs, your booking is guaranteed to be <span class="highlight">a success.</span> With a full light and sound package, full public liability insurance, and a world of experience brought directly to you.</p>
+        <p class="hero-tagline">Bringing West End energy and Cruise Ship class entertainment to your venue. From corporate events to local pubs and clubs, your booking is guaranteed to be a success. With a full light and sound package, full public liability insurance, and a world of experience brought directly to you.</p>
     </header>
 
     <div style="text-align: center; padding-top: 50px;">
-        <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 4px; color: white; opacity: 0.6; margin-bottom: 10px;">
-            Previous Clients
-        </p>
+        <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 4px; color: white; opacity: 0.6; margin-bottom: 10px;">Previous Clients</p>
         <div class="ticker-wrap">
             <div class="ticker-content">
                 <div class="ticker-items">
-                    <span>• P&O</span><span>• THE TRAFFORD CENTRE</span><span>• THOMSON CRUISES</span><span>• FORUM THEATRE, ROMILEY</span><span>• HORWICH R.M.I.</span><span>• RAWTENSTALL CRICKET CLUB</span><span>• GLOSSOP HERITAGE FESTIVAL</span><span>• BOOTS</span><span>• ISLAND CRUISES</span><span>• WOODHOUSE MUSICAL THEATRE COMPANY</span><span>• HASLINGDEN CRICKET CLUB</span><span>• CRUISE AND MARITIME VOYAGES</span><span>• STOCKPORT COUNCIL</span>
+                    <span>• P&O</span><span>• THE TRAFFORD CENTRE</span><span>• THOMSON CRUISES</span><span>• FORUM THEATRE, ROMILEY</span><span>• HORWICH R.M.I.</span><span>• RAWTENSTALL CRICKET CLUB</span><span>• GLOSSOP HERITAGE FESTIVAL</span><span>• BOOTS</span><span>• ISLAND CRUISES</span><span>• HASLINGDEN CRICKET CLUB</span><span>• CRUISE AND MARITIME VOYAGES</span>
                 </div>
                 <div class="ticker-items">
-                    <span>• P&O</span><span>• THE TRAFFORD CENTRE</span><span>• THOMSON CRUISES</span><span>• FORUM THEATRE, ROMILEY</span><span>• HORWICH R.M.I.</span><span>• RAWTENSTALL CRICKET CLUB</span><span>• GLOSSOP HERITAGE FESTIVAL</span><span>• BOOTS</span><span>• ISLAND CRUISES</span><span>• WOODHOUSE MUSICAL THEATRE COMPANY</span><span>• HASLINGDEN CRICKET CLUB</span><span>• CRUISE AND MARITIME VOYAGES</span><span>• STOCKPORT COUNCIL</span>
+                    <span>• P&O</span><span>• THE TRAFFORD CENTRE</span><span>• THOMSON CRUISES</span><span>• FORUM THEATRE, ROMILEY</span><span>• HORWICH R.M.I.</span><span>• RAWTENSTALL CRICKET CLUB</span><span>• GLOSSOP HERITAGE FESTIVAL</span><span>• BOOTS</span><span>• ISLAND CRUISES</span><span>• HASLINGDEN CRICKET CLUB</span><span>• CRUISE AND MARITIME VOYAGES</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <section class="bio-section">
-        <h2>A LITTLE ABOUT ME</h2>
-        <p>With over 30 years of experience, and spending nearly a decade creating world-class entertainment for major global cruise lines, I’m now bringing that same quality and variety directly to you. Entertaining is my passion. I ensure that every detail of your event is meticulously planned and expertly executed. Variety is fading, and I'm on a one-man mission to keep it alive. This isn't just Entertainment, it's <strong>Eventertainment!</strong></p>
-    </section>
-
-    <p class="instruction">Click each option below to find out more</p>
-    
-    <section class="services-grid">
-        <div class="service-card" onclick="openModal('quiz')">
-            <div class="card-img" style="background-image: url('Quiz.PNG')"></div>
-            <h3>Quiz Nights</h3>
-        </div>
-        <div class="service-card" onclick="openModal('blues')">
-            <div class="card-img" style="background-image: url('blues.jpg')"></div>
-            <h3>Blues Brothers Tribute</h3>
-        </div>
-        <div class="service-card" onclick="openModal('variety')">
-            <div class="card-img" style="background-image: url('variety.png')"></div>
-            <h3>Variety Nights</h3>
-        </div>
-        <div class="service-card" onclick="openModal('magic')">
-            <div class="card-img" style="background-image: url('magic.png')"></div>
-            <h3>Magic & Mentalism</h3>
-        </div>
-        <div class="service-card" onclick="openModal('race')">
-            <div class="card-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNpGOqXWglhokN1QaWOo8XARNlr6h7uJtlfzimu0UMzg&s=10')"></div>
-            <h3>Race Nights</h3>
-        </div>
-        <div class="service-card" onclick="openModal('gameshow')">
-            <div class="card-img" style="background-image: url('gameshow.png')"></div>
-            <h3>Game Shows</h3>
-        </div>
-        <div class="service-card" onclick="openModal('waiters')">
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=400')"></div>
-            <h3>Singing Waiters</h3>
-        </div>
-        <div class="service-card" onclick="openModal('extra')">
-            <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400')"></div>
-            <h3>Other Services</h3>
+    <section class="reveal">
+        <div class="bio-text">
+            <h2>A LITTLE ABOUT ME</h2>
+            <p>With over 30 years of experience, and spending nearly a decade creating world-class entertainment for major global cruise lines, I’m now bringing that same quality and variety directly to you. Entertaining is my passion. I ensure that every detail of your event is meticulously planned and expertly executed. Variety is fading, and I'm on a one-man mission to keep it alive. This isn't just Entertainment, it's <strong>Eventertainment!</strong></p>
         </div>
     </section>
 
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <div id="modalBody"></div>
-            <a href="#contact" onclick="closeModal()" class="btn" style="width:100%; text-align:center; margin-top:20px;">Enquire Now</a>
+    <section class="section-dark">
+        <p class="instruction">Click each option below to find out more</p>
+        <div class="services-grid">
+            <div class="service-card" onclick="openModal('quiz')">
+                <div class="card-img" style="background-image: url('Quiz.PNG')"></div>
+                <h3>Quiz Nights</h3>
+            </div>
+            <div class="service-card" onclick="openModal('blues')">
+                <div class="card-img" style="background-image: url('blues.jpg')"></div>
+                <h3>Blues Brothers Tribute</h3>
+            </div>
+            <div class="service-card" onclick="openModal('variety')">
+                <div class="card-img" style="background-image: url('variety.png')"></div>
+                <h3>Variety Nights</h3>
+            </div>
+            <div class="service-card" onclick="openModal('magic')">
+                <div class="card-img" style="background-image: url('magic.png')"></div>
+                <h3>Magic & Mentalism</h3>
+            </div>
+            <div class="service-card" onclick="openModal('race')">
+                <div class="card-img" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNpGOqXWglhokN1QaWOo8XARNlr6h7uJtlfzimu0UMzg&s=10')"></div>
+                <h3>Race Nights</h3>
+            </div>
+            <div class="service-card" onclick="openModal('gameshow')">
+                <div class="card-img" style="background-image: url('gameshow.png')"></div>
+                <h3>Game Shows</h3>
+            </div>
+            <div class="service-card" onclick="openModal('waiters')">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=400')"></div>
+                <h3>Singing Waiters</h3>
+            </div>
+            <div class="service-card" onclick="openModal('extra')">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=400')"></div>
+                <h3>Other Services</h3>
+            </div>
         </div>
-    </div>
-
-    <section class="bio-section">
-        <h2>AREAS COVERED</h2>
-        <p>Based in the North West, I typically cover areas within one hour's drive. However, any location will be considered, provided travel and accommodation are factored in.</p>
     </section>
 
-    <section class="contact-section" id="contact">
+    <section class="reveal" style="overflow: hidden;">
+        <h2>WHAT PEOPLE SAY</h2>
+        <div class="testimonial-track">
+            <div class="testimonial-card">★★★★★<br><p>"Amazing quiz host! Our regular crowd loves the variety, entertainment and reliability"</p><strong>- Manager - Duke Of York, Heaviley</strong></div>
+            <div class="testimonial-card">★★★★★<br><p>"Absolute professional. The singing waiters surprise made our wedding."</p><strong>- The Bryants, Peckforton Castle</strong></div>
+            <div class="testimonial-card">★★★★★<br><p>"I highly recommend Chicagoland Blues Brothers, absolutely outstanding."</p><strong>- Holly, Windmill Pub Denton</strong></div>     
+            <div class="testimonial-card">★★★★★<br><p>"What a legend! Never seen a full room join in with the games, music bingo and dancing before."</p><strong>- Almondbury Liberal Club</strong></div>
+            <div class="testimonial-card">★★★★★<br><p>"Gareth was the light and energy we needed during our wedding breakfast."</p><strong>- Mike & Sue, Blackpool</strong></div>
+            <div class="testimonial-card">★★★★★<br><p>"Amazing night of fundraising entertainment, the whole room was up dancing."</p><strong>- Woodhouse Theatre Company</strong></div>
+            <div class="testimonial-card">★★★★★<br><p>"Literally covered all of our entertainment with ease. High energy, thanks!"</p><strong>- The Together Trust</strong></div>
+            <div class="testimonial-card">★★★★★<br><p>"Cannot recommend the Chicagoland Blues brothers enough, best we have seen"</p><strong>- Emmigration, Stockport</strong></div>
+            <div class="testimonial-card">★★★★★<br><p>"Our guests had no idea we booked a singing waiter. Gareth surprised even us."</p><strong>- Alison and Chris</strong></div>
+            <div class="testimonial-card">★★★★★<br><p>"Always the ultimate professional with so much passion and versatility"</p><strong>- Tom, Wakefield</strong></div>
+        </div>
+    </section>
+
+    <section class="section-dark reveal">
+        <div class="bio-text">
+            <h2>AREAS COVERED</h2>
+            <p>Based in the North West, I typically cover areas within one hour's drive. However, any location will be considered, provided travel and accommodation are factored in. Fully licensed and PAT tested.</p>
+        </div>
+    </section>
+
+    <section class="reveal" style="padding-bottom: 40px;">
+        <h2>FREQUENTLY ASKED QUESTIONS</h2>
+        <div class="faq-outer-box">
+            
+            <div class="faq-topic">
+                <div class="topic-header" onclick="toggleTopic(this)">BOOKING & LOGISTICS <span>+</span></div>
+                <div class="topic-content">
+                    <div class="nested-item">
+                        <div class="nested-question" onclick="toggleQuestion(this)">How much does it cost? <span>+</span></div>
+                        <div class="nested-answer">While all bookings are bespoke, a typical night of entertainment starts from just £250.</div>
+                    </div>
+                    <div class="nested-item">
+                        <div class="nested-question" onclick="toggleQuestion(this)">How do I book? <span>+</span></div>
+                        <div class="nested-answer">Use our contact form, email address or contact numbers to send an enquiry and we will do the rest.</div>
+                    </div>
+                    <div class="nested-item">
+                        <div class="nested-question" onclick="toggleQuestion(this)">What if I want something bespoke? <span>+</span></div>
+                        <div class="nested-answer">Every booking is tailored to your needs, guests and venue. Not one of our nights is a repeat.</div>
+                    </div>
+                    <div class="nested-item">
+                        <div class="nested-question" onclick="toggleQuestion(this)">Are you insured? <span>+</span></div>
+                        <div class="nested-answer">Absolutely. I carry full Public Liability Insurance and all equipment is PAT tested.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-topic">
+                <div class="topic-header" onclick="toggleTopic(this)">TECHNICAL & SETUP <span>+</span></div>
+                <div class="topic-content">
+                    <div class="nested-item">
+                        <div class="nested-question" onclick="toggleQuestion(this)">Do you provide sound and lighting? <span>+</span></div>
+                        <div class="nested-answer">Yes, all bookings include a professional PA system and stage lighting suitable for most venues.</div>
+                    </div>
+                    <div class="nested-item">
+                        <div class="nested-question" onclick="toggleQuestion(this)">Do we need to provide anything? <span>+</span></div>
+                        <div class="nested-answer">All we need is a minimum of 2 x electrical sockets and a space to perform.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contact-section reveal" id="contact">
         <form action="https://submit-form.com/KqZORvumi" method="POST">
-            <h2>Booking & Enquiries</h2>
+            <h2>START YOUR ENQUIRY</h2>
             <input type="hidden" name="_redirect" value="https://the-eventertainer.com?status=success" />
             <input type="text" name="name" placeholder="Name / Venue" required>
             <input type="email" name="email" placeholder="Email Address" required>
             <textarea name="message" rows="4" placeholder="Event details (Date, Location, Type of Event)..." required></textarea>
             <button type="submit" class="btn">Send Request</button>
         </form>
-
-<p style="opacity: 0.9; font-size: 1.1rem; margin-bottom: 25px; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
-    <svg style="width:40px; height:40px; fill:#1877F2;" viewBox="0 0 24 24">
-        <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z" />
-    </svg>
-    <span style="max-width: 250px; line-height: 1.2;">Check out my latest shows and galleries</span>
-</p>
-
+        
         <div class="social-links">
-            <a href="https://www.facebook.com/TheEventertainerUK" target="_blank" class="btn fb-btn-main">The Eventertainer on Facebook</a>
-            <a href="https://www.facebook.com/chicagolandbluesbrothers" target="_blank" class="btn fb-btn-blues">Chicagoland Blues Brothers</a>
+            <a href="https://www.facebook.com/TheEventertainerUK" target="_blank" class="btn" style="background: var(--fb-blue); color: white; min-width: 250px; margin: 5px;">The Eventertainer</a>
+            <a href="https://www.facebook.com/chicagolandbluesbrothers" target="_blank" class="btn" style="background: white; color: black; min-width: 250px; margin: 5px;">Blues Brothers Tribute</a>
         </div>
     </section>
 
     <footer style="background: #000; padding: 40px 20px; text-align: center; border-top: 1px solid #222;">
-        <div style="margin-bottom: 30px;">
-            <h3 style="color: var(--accent); font-family: 'Montserrat'; text-transform: uppercase; margin-bottom: 20px;">Get In Touch Directly</h3>
-            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; font-size: 1.1rem;">
-                <a href="https://wa.me/447709140912" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;">
-                    <span style="color: #25D366; font-weight: bold;">WhatsApp/Call:</span> 07709 140912
-                </a>
-                <a href="mailto:info@the-eventertainer.com" style="color: white; text-decoration: none; display: flex; align-items: center; gap: 8px;">
-                    <span style="color: var(--accent);">Email:</span> info@the-eventertainer.com
-                </a>
-            </div>
+        <h3 style="color: var(--accent); font-family: 'Montserrat'; text-transform: uppercase; margin-bottom: 20px;">Get In Touch Directly</h3>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; font-size: 1.1rem;">
+            <a href="https://wa.me/447709140912" target="_blank" style="color: white; text-decoration: none;"><span style="color: #25D366; font-weight: bold;">WhatsApp/Call:</span> 07709 140912</a>
+            <a href="mailto:info@the-eventertainer.com" style="color: white; text-decoration: none;"><span style="color: var(--accent);">Email:</span> info@the-eventertainer.com</a>
         </div>
-        <a href="#" style="color: var(--accent); text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 40px;">↑ Back to Top</a>
-        <p style="opacity: 0.4; font-size: 0.8rem; margin: 0;">&copy; 2026 TheEventertainer. All Rights Reserved.</p>
+        <p style="opacity: 0.3; font-size: 0.8rem; margin-top: 40px;">&copy; 2026 The Eventertainer. All Rights Reserved.</p>
     </footer>
 
-<script>
-    const serviceData = {
-        quiz: {
-            title: "Premium Quiz Nights",
-            text: `High-energy professional quiz hosting:
-                <ul>
-                    <li>A variety of rounds and questions</li>
-                    <li>Music rounds, picture rounds and specialist rounds</li>
-                    <li>Accumulator games for repeat visitation</li>
-                    <li>Themed rounds and personalised content</li>
-                    <li>Full PA system and atmospheric music included</li>
-                    <li>Perfect for pubs, clubs, and corporate teambuilding</li>
-                </ul>`
-        },
-        blues: {
-            title: "Blues Brothers Tribute",
-            text: `A high-octane tribute to Jake and Elwood Blues:
-                <ul>
-                    <li>Available as a duo or with the full band & 'Blue-ettes'</li>
-                    <li>Featuring all the hits: 'Soul Man', 'Everybody', and more</li>
-                    <li>Full lighting package for the ultimate stage show</li>
-                    <li>Available for festivals, private parties, and themed nights</li>
-                </ul>`
-        },
-        variety: {
-            title: "Variety Nights",
-            text: `Keeping variety alive:
-                <ul>
-                    <li>A full mix of quizzes, magic, cabaret and more</li>
-                    <li>Comedy and light-hearted audience interaction</li>
-                    <li>A tailor-made show to suit your specific venue</li>
-                    <li>Ideal for charity fundraisers or family events </li>
-                    <li>A 'one stop' shop for a full event of entertainment</li>
-                </ul>`
-        },
-        magic: {
-            title: "Magic & Mentalism",
-            text: `Incredible feats of the mind and sleight of hand:
-                <ul>
-                    <li>Comedy magic and jaw dropping mentalism</li>
-                    <li>Stage cabaret or close up magic options</li>
-                    <li>Experience gained from major global cruise lines</li>
-                    <li>A sophisticated choice for weddings and corporate events</li>
-                </ul>`
-        },
-        race: {
-            title: "Race Nights",
-            text: `A thrilling night at the races brought to you:
-                <ul>
-                    <li>Professional hosting and big screen projection</li>
-                    <li>Custom betting system</li>
-                    <li>Ideal for fundraising or venue entertainment</li>
-                    <li>Live entertainment in all race breaks</li>
-                    <li>An inclusive night that gets everyone cheering</li>
-                </ul>`
-        },
-        gameshow: {
-            title: "Interactive Game Shows",
-            text: `TV-style game shows live at your venue:
-                <ul>
-                    <li>Audience participation at its highest</li>
-                    <li>Music, lights, and classic gameshow formats</li>
-                    <li>Professional hosting to keep the energy soaring</li>
-                    <li>Perfect for mixed-age crowds and celebrations</li>
-                </ul>`
-        },
-        waiters: {
-            title: "Singing Waiters",
-            text: `The ultimate surprise for your guests:
-                <ul>
-                    <li>Hidden 'undercover' performers</li>
-                    <li>The perfect 'reveal' at the best moment in your celebrations</li>
-                    <li>Personalised setlist of songs</li>
-                    <li>Guaranteed to be a highlight of your wedding celebration</li>
-                </ul>`
-        },
-        extra: {
-            title: "Bespoke Services",
-            text: `If you need entertainment, I can provide it:
-                <ul>
-                    <li>Compere / Master of Ceremonies (MC)</li>
-                    <li>Themed vocal sets (60s, 70s, 80s, etc.)</li>
-                    <li>Dj and Karaoke services</li>
-                    <li>Sound and lighting hire with an engineer</li>
-                    <li>Event planning and management</li>
-                </ul>`
-        }
-    };
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+            <a href="#contact" id="modalEnquireBtn" onclick="closeModal()" class="btn" style="width:100%; text-align:center; margin-top:20px;">Enquire Now</a>
+        </div>
+    </div>
 
-    function openModal(service) {
-        const modal = document.getElementById('infoModal');
-        const body = document.getElementById('modalBody');
-        const data = serviceData[service];
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        const serviceData = {
+            quiz: {
+                title: "Premium Quiz Nights",
+                text: `High-energy professional quiz hosting:
+                    <ul>
+                        <li>A variety of rounds and questions</li>
+                        <li>Music rounds, picture rounds and specialist rounds</li>
+                        <li>Accumulator games for repeat visitation</li>
+                        <li>Themed rounds and personalised content</li>
+                        <li>Full PA system and atmospheric music included</li>
+                        <li>Perfect for pubs, clubs, and corporate teambuilding</li>
+                    </ul>`
+            },
+            blues: {
+                title: "Blues Brothers Tribute",
+                text: `A high-octane tribute to Jake and Elwood Blues:
+                    <ul>
+                        <li>Available as a duo or with the full band & 'Blue-ettes'</li>
+                        <li>Featuring all the hits: 'Soul Man', 'Everybody', and more</li>
+                        <li>Full lighting package for the ultimate stage show</li>
+                        <li>Available for festivals, private parties, and themed nights</li>
+                    </ul>`
+            },
+            variety: {
+                title: "Variety Nights",
+                text: `Keeping variety alive:
+                    <ul>
+                        <li>A full mix of quizzes, magic, cabaret and more</li>
+                        <li>Comedy and light-hearted audience interaction</li>
+                        <li>A tailor-made show to suit your specific venue</li>
+                        <li>Ideal for charity fundraisers or family events </li>
+                        <li>A 'one stop' shop for a full event of entertainment</li>
+                    </ul>`
+            },
+            magic: {
+                title: "Magic & Mentalism",
+                text: `Incredible feats of the mind and sleight of hand:
+                    <ul>
+                        <li>Comedy magic and jaw dropping mentalism</li>
+                        <li>Stage cabaret or close up magic options</li>
+                        <li>Experience gained from major global cruise lines</li>
+                        <li>A sophisticated choice for weddings and corporate events</li>
+                    </ul>`
+            },
+            race: {
+                title: "Race Nights",
+                text: `A thrilling night at the races brought to you:
+                    <ul>
+                        <li>Professional hosting and big screen projection</li>
+                        <li>Custom betting system</li>
+                        <li>Ideal for fundraising or venue entertainment</li>
+                        <li>Live entertainment in all race breaks</li>
+                        <li>An inclusive night that gets everyone cheering</li>
+                    </ul>`
+            },
+            gameshow: {
+                title: "Interactive Game Shows",
+                text: `TV-style game shows live at your venue:
+                    <ul>
+                        <li>Audience participation at its highest</li>
+                        <li>Music, lights, and classic gameshow formats</li>
+                        <li>Professional hosting to keep the energy soaring</li>
+                        <li>Perfect for mixed-age crowds and celebrations</li>
+                    </ul>`
+            },
+            waiters: {
+                title: "Singing Waiters",
+                text: `The ultimate surprise for your guests:
+                    <ul>
+                        <li>Hidden 'undercover' performers</li>
+                        <li>The perfect 'reveal' at the best moment in your celebrations</li>
+                        <li>Personalised setlist of songs</li>
+                        <li>Guaranteed to be a highlight of your wedding celebration</li>
+                    </ul>`
+            },
+            extra: {
+                title: "Bespoke Services",
+                text: `If you need entertainment, I can provide it:
+                    <ul>
+                        <li>Compere / Master of Ceremonies (MC)</li>
+                        <li>Themed vocal sets (60s, 70s, 80s, etc.)</li>
+                        <li>Dj and Karaoke services</li>
+                        <li>Sound and lighting hire with an engineer</li>
+                        <li>Event planning and management</li>
+                    </ul>`
+            }
+        };
 
-        if (data) {
-            body.innerHTML = `
-                <h2 style="color:var(--accent); font-family: 'Montserrat'; text-transform: uppercase;">${data.title}</h2>
-                <div style="font-size: 1.1rem;">${data.text}</div>
-            `;
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('infoModal');
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-
-    window.onclick = function(event) {
-        const modal = document.getElementById('infoModal');
-        if (event.target == modal) {
-            closeModal();
-        }
-    }
-
-    // Success Message Script - Button Hiding Version
-    window.onload = function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('status') === 'success') {
+        function openModal(service) {
             const modal = document.getElementById('infoModal');
             const body = document.getElementById('modalBody');
-            
-            // 1. Find the "Enquire Now" button inside the modal and hide it
-            const modalBtn = modal.querySelector('.btn');
-            if (modalBtn) modalBtn.style.display = 'none';
-            
-            body.innerHTML = `
-                <h2 style="color:var(--accent); font-family: 'Montserrat';">THANK YOU!</h2>
-                <div style="font-size: 1.2rem; text-align: center; padding-bottom: 20px;">
-                    <p>Your enquiry has been sent successfully.</p>
-                    <p>The Eventertainer will be in touch with you shortly!</p>
-                </div>
-            `;
-            modal.style.display = 'flex';
-            
-            // Clean up the URL
-            window.history.replaceState({}, document.title, window.location.pathname);
+            const data = serviceData[service];
+            if (data) {
+                body.innerHTML = `<h2 style="color:var(--accent); font-family: 'Montserrat'; text-transform: uppercase;">${data.title}</h2><div style="font-size: 1.1rem;">${data.text}</div>`;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
         }
-    }
-</script>
+        function closeModal() { document.getElementById('infoModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
+        // EXCLUSIVE FAQ LOGIC
+        function toggleTopic(element) {
+            const topic = element.parentElement;
+            const isOpen = topic.classList.contains('active');
+
+            // Close all topics first
+            document.querySelectorAll('.faq-topic').forEach(t => {
+                t.classList.remove('active');
+                const span = t.querySelector('.topic-header span');
+                if (span) span.textContent = '+';
+            });
+
+            // If it was closed, open it now
+            if (!isOpen) {
+                topic.classList.add('active');
+                element.querySelector('span').textContent = '-';
+            }
+        }
+
+        function toggleQuestion(element) {
+            const item = element.parentElement;
+            const container = item.parentElement; // The topic-content div
+            const isOpen = item.classList.contains('active');
+
+            // Close all other questions in THIS section only
+            container.querySelectorAll('.nested-item').forEach(q => {
+                q.classList.remove('active');
+                const span = q.querySelector('.nested-question span');
+                if (span) span.textContent = '+';
+            });
+
+            // If it was closed, open it now
+            if (!isOpen) {
+                item.classList.add('active');
+                element.querySelector('span').textContent = '-';
+            }
+        }
+
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 150) reveals[i].classList.add("active");
+            }
+        }
+        window.addEventListener("scroll", reveal);
+
+        window.onload = function() {
+            reveal();
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('status') === 'success') {
+                const modal = document.getElementById('infoModal');
+                const body = document.getElementById('modalBody');
+                document.getElementById('modalEnquireBtn').style.display = 'none';
+                body.innerHTML = `<h2 style="color:var(--accent); font-family: 'Montserrat';">THANK YOU!</h2><p style="text-align:center">Your enquiry was successful. I'll be in touch soon!</p>`;
+                modal.style.display = 'flex';
+                confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#f39c12', '#ffffff'] });
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        }
+    </script>
 </body>
 </html>
