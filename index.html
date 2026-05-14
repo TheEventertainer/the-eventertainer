@@ -33,6 +33,7 @@
 
         h2 { text-align: center; font-family: 'Montserrat'; color: var(--accent); text-transform: uppercase; margin-bottom: 30px; }
 
+        /* Scroll Reveal Effect */
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -45,6 +46,7 @@
         .hero-title { font-family: 'Montserrat'; font-size: clamp(2.5rem, 10vw, 5rem); color: var(--accent); text-transform: uppercase; margin: 0; line-height: 1.1; }
         .hero-tagline { font-size: clamp(1rem, 4vw, 1.2rem); max-width: 800px; margin-top: 20px; opacity: 0.9; }
 
+        /* Client Ticker */
         .ticker-wrap { width: 100%; overflow: hidden; background: rgba(255,255,255,0.03); padding: 25px 0; border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1); }
         .ticker-content { display: flex; width: max-content; animation: scroll-loop 30s linear infinite; }
         .ticker-items span { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; padding: 0 40px; color: var(--accent); white-space: nowrap; }
@@ -56,16 +58,18 @@
         .bio-text { max-width: 850px; margin: 0 auto; text-align: center; }
         .instruction { text-align: center; color: var(--accent); margin-bottom: 20px; font-style: italic; font-size: 1.4rem; font-weight: 600; display: block; width: 100%; }
 
+        /* Service Cards */
         .services-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1400px; margin: 0 auto; }
-        .service-card { background: var(--glass); border-radius: 12px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; width: 300px; }
+        .service-card { background: var(--glass); border-radius: 12px; overflow: hidden; cursor: pointer; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s; width: 300px; position: relative; }
         .service-card:hover { transform: translateY(-5px); border-color: var(--accent); }
         .card-img { height: 200px; background-size: cover; background-position: center; }
         .service-card h3 { padding: 15px; margin: 0; font-family: 'Montserrat'; font-size: 1.1rem; text-align: center; background: rgba(0,0,0,0.7); }
 
+        /* Testimonials */
         .testimonial-track { display: flex; width: max-content; animation: scroll-loop 60s linear infinite; padding: 20px 0; }
         .testimonial-card { background: var(--glass); padding: 30px; border-radius: 15px; width: 350px; margin: 0 15px; border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; justify-content: center; }
 
-        /* FAQ STYLING */
+        /* FAQ Logic */
         .faq-outer-box { max-width: 850px; margin: 0 auto; background: var(--glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; overflow: hidden; }
         .faq-topic { border-bottom: 1px solid rgba(255,255,255,0.1); }
         .topic-header { padding: 20px; cursor: pointer; color: #ffffff !important; font-family: 'Montserrat'; font-size: 1.1rem; display: flex; justify-content: space-between; text-transform: uppercase; }
@@ -75,20 +79,35 @@
         .nested-answer { display: none; padding: 0 0 15px 10px; color: #ffffff !important; font-size: 0.95rem; line-height: 1.5; }
         .nested-item.active .nested-answer { display: block; }
 
+        /* Contact & Buttons */
         .contact-section { background: #000; text-align: center; padding-bottom: 40px; }
         form { max-width: 550px; margin: 0 auto 40px; display: flex; flex-direction: column; gap: 15px; }
         input, textarea { padding: 15px; background: #111; border: 1px solid #333; color: #fff; border-radius: 5px; font-family: inherit; }
         .btn { background: var(--accent); color: #000; font-weight: bold; padding: 15px 30px; border-radius: 5px; cursor: pointer; text-transform: uppercase; border: none; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s; }
         .btn:hover { transform: scale(1.02); opacity: 0.9; }
 
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed; bottom: 30px; right: 30px; z-index: 99;
+            background: rgba(243, 156, 18, 0.2); backdrop-filter: blur(10px);
+            color: var(--accent); border: 1px solid var(--accent);
+            width: 50px; height: 50px; border-radius: 50%;
+            cursor: pointer; display: none; align-items: center; justify-content: center;
+            transition: 0.3s; font-size: 1.2rem;
+        }
+        #backToTop:hover { background: var(--accent); color: #000; }
+
+        /* Modals */
         .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
         .modal-content { background: #1a1a1a; padding: 40px; border: 1px solid var(--accent); width: 90%; max-width: 600px; border-radius: 15px; position: relative; max-height: 90vh; overflow-y: auto; }
         .close { position: absolute; right: 20px; top: 10px; font-size: 35px; cursor: pointer; color: #fff; }
-        #modalBody ul { text-align: left; margin-top: 15px; padding-left: 20px; list-style-type: square; }
-        #modalBody li { margin-bottom: 10px; color: #eee; }
     </style>
 </head>
-<body>
+<body id="top">
+
+    <button id="backToTop" onclick="scrollToTop()" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <header>
         <h1 class="hero-title">The Eventertainer</h1>
@@ -180,7 +199,6 @@
     <section class="reveal" style="padding-bottom: 40px;">
         <h2>FREQUENTLY ASKED QUESTIONS</h2>
         <div class="faq-outer-box">
-            
             <div class="faq-topic">
                 <div class="topic-header" onclick="toggleTopic(this)">BOOKING & LOGISTICS <span>+</span></div>
                 <div class="topic-content">
@@ -216,7 +234,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -259,162 +276,85 @@
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <script>
+        // Data for Modal
         const serviceData = {
-            quiz: {
-                title: "Premium Quiz Nights",
-                text: `High-energy professional quiz hosting:
-                    <ul>
-                        <li>A variety of rounds and questions</li>
-                        <li>Music rounds, picture rounds and specialist rounds</li>
-                        <li>Accumulator games for repeat visitation</li>
-                        <li>Themed rounds and personalised content</li>
-                        <li>Full PA system and atmospheric music included</li>
-                        <li>Perfect for pubs, clubs, and corporate teambuilding</li>
-                    </ul>`
-            },
-            blues: {
-                title: "Blues Brothers Tribute",
-                text: `A high-octane tribute to Jake and Elwood Blues:
-                    <ul>
-                        <li>Available as a duo or with the full band & 'Blue-ettes'</li>
-                        <li>Featuring all the hits: 'Soul Man', 'Everybody', and more</li>
-                        <li>Full lighting package for the ultimate stage show</li>
-                        <li>Available for festivals, private parties, and themed nights</li>
-                    </ul>`
-            },
-            variety: {
-                title: "Variety Nights",
-                text: `Keeping variety alive:
-                    <ul>
-                        <li>A full mix of quizzes, magic, cabaret and more</li>
-                        <li>Comedy and light-hearted audience interaction</li>
-                        <li>A tailor-made show to suit your specific venue</li>
-                        <li>Ideal for charity fundraisers or family events </li>
-                        <li>A 'one stop' shop for a full event of entertainment</li>
-                    </ul>`
-            },
-            magic: {
-                title: "Magic & Mentalism",
-                text: `Incredible feats of the mind and sleight of hand:
-                    <ul>
-                        <li>Comedy magic and jaw dropping mentalism</li>
-                        <li>Stage cabaret or close up magic options</li>
-                        <li>Experience gained from major global cruise lines</li>
-                        <li>A sophisticated choice for weddings and corporate events</li>
-                    </ul>`
-            },
-            race: {
-                title: "Race Nights",
-                text: `A thrilling night at the races brought to you:
-                    <ul>
-                        <li>Professional hosting and big screen projection</li>
-                        <li>Custom betting system</li>
-                        <li>Ideal for fundraising or venue entertainment</li>
-                        <li>Live entertainment in all race breaks</li>
-                        <li>An inclusive night that gets everyone cheering</li>
-                    </ul>`
-            },
-            gameshow: {
-                title: "Interactive Game Shows",
-                text: `TV-style game shows live at your venue:
-                    <ul>
-                        <li>Audience participation at its highest</li>
-                        <li>Music, lights, and classic gameshow formats</li>
-                        <li>Professional hosting to keep the energy soaring</li>
-                        <li>Perfect for mixed-age crowds and celebrations</li>
-                    </ul>`
-            },
-            waiters: {
-                title: "Singing Waiters",
-                text: `The ultimate surprise for your guests:
-                    <ul>
-                        <li>Hidden 'undercover' performers</li>
-                        <li>The perfect 'reveal' at the best moment in your celebrations</li>
-                        <li>Personalised setlist of songs</li>
-                        <li>Guaranteed to be a highlight of your wedding celebration</li>
-                    </ul>`
-            },
-            extra: {
-                title: "Bespoke Services",
-                text: `If you need entertainment, I can provide it:
-                    <ul>
-                        <li>Compere / Master of Ceremonies (MC)</li>
-                        <li>Themed vocal sets (60s, 70s, 80s, etc.)</li>
-                        <li>Dj and Karaoke services</li>
-                        <li>Sound and lighting hire with an engineer</li>
-                        <li>Event planning and management</li>
-                    </ul>`
-            }
+            quiz: { title: "Premium Quiz Nights", text: `<ul><li>Variety of rounds and questions</li><li>Music and picture rounds</li><li>Accumulator games</li><li>Full PA system included</li></ul>` },
+            blues: { title: "Blues Brothers Tribute", text: `<ul><li>Jake & Elwood Tribute Duo</li><li>Featuring all the hits</li><li>Full stage lighting show</li></ul>` },
+            variety: { title: "Variety Nights", text: `<ul><li>Mix of quizzes, magic, and cabaret</li><li>Ideal for fundraisers</li><li>Tailor-made for your venue</li></ul>` },
+            magic: { title: "Magic & Mentalism", text: `<ul><li>Comedy magic and mind reading</li><li>Close-up or stage options</li><li>Cruise ship experience</li></ul>` },
+            race: { title: "Race Nights", text: `<ul><li>Big screen race projection</li><li>Full professional hosting</li><li>Great for fundraising</li></ul>` },
+            gameshow: { title: "Interactive Game Shows", text: `<ul><li>Audience participation</li><li>Classic gameshow formats</li><li>Music and prizes</li></ul>` },
+            waiters: { title: "Singing Waiters", text: `<ul><li>The ultimate undercover surprise</li><li>Perfect for weddings</li><li>Personalised setlists</li></ul>` },
+            extra: { title: "Other Services", text: `<ul><li>Master of Ceremonies</li><li>DJ & Karaoke</li><li>Event Management</li></ul>` }
         };
 
+        // Modal Functions
         function openModal(service) {
             const modal = document.getElementById('infoModal');
             const body = document.getElementById('modalBody');
             const data = serviceData[service];
             if (data) {
-                body.innerHTML = `<h2 style="color:var(--accent); font-family: 'Montserrat'; text-transform: uppercase;">${data.title}</h2><div style="font-size: 1.1rem;">${data.text}</div>`;
+                body.innerHTML = `<h2 style="color:var(--accent); font-family: 'Montserrat'; uppercase;">${data.title}</h2><div style="font-size: 1.1rem;">${data.text}</div>`;
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
             }
         }
         function closeModal() { document.getElementById('infoModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
-        // EXCLUSIVE FAQ LOGIC
+        // FAQ Logic (One at a time)
         function toggleTopic(element) {
             const topic = element.parentElement;
             const isOpen = topic.classList.contains('active');
-
-            // Close all topics first
             document.querySelectorAll('.faq-topic').forEach(t => {
                 t.classList.remove('active');
-                const span = t.querySelector('.topic-header span');
-                if (span) span.textContent = '+';
+                if(t.querySelector('span')) t.querySelector('span').textContent = '+';
             });
-
-            // If it was closed, open it now
             if (!isOpen) {
                 topic.classList.add('active');
                 element.querySelector('span').textContent = '-';
             }
         }
-
         function toggleQuestion(element) {
             const item = element.parentElement;
             const container = item.parentElement;
             const isOpen = item.classList.contains('active');
-
-            // Close all other questions in THIS section only
             container.querySelectorAll('.nested-item').forEach(q => {
                 q.classList.remove('active');
-                const span = q.querySelector('.nested-question span');
-                if (span) span.textContent = '+';
+                if(q.querySelector('span')) q.querySelector('span').textContent = '+';
             });
-
-            // If it was closed, open it now
             if (!isOpen) {
                 item.classList.add('active');
                 element.querySelector('span').textContent = '-';
             }
         }
 
-        function reveal() {
+        // Back to Top Logic
+        const topBtn = document.getElementById("backToTop");
+        window.onscroll = function() {
+            // Reveal sections
             var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 150) reveals[i].classList.add("active");
-            }
-        }
-        window.addEventListener("scroll", reveal);
+            reveals.forEach(r => {
+                if (r.getBoundingClientRect().top < window.innerHeight - 150) r.classList.add("active");
+            });
 
+            // Show/Hide Top Button
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                topBtn.style.display = "flex";
+            } else {
+                topBtn.style.display = "none";
+            }
+        };
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Form Success Handling
         window.onload = function() {
-            reveal();
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.get('status') === 'success') {
                 const modal = document.getElementById('infoModal');
-                const body = document.getElementById('modalBody');
                 document.getElementById('modalEnquireBtn').style.display = 'none';
-                body.innerHTML = `<h2 style="color:var(--accent); font-family: 'Montserrat';">THANK YOU!</h2><p style="text-align:center">Your enquiry was successful. I'll be in touch soon!</p>`;
+                document.getElementById('modalBody').innerHTML = `<h2 style="color:var(--accent);">THANK YOU!</h2><p style="text-align:center">Enquiry sent successfully. I'll be in touch soon!</p>`;
                 modal.style.display = 'flex';
                 confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 }, colors: ['#f39c12', '#ffffff'] });
                 window.history.replaceState({}, document.title, window.location.pathname);
